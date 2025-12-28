@@ -4,26 +4,51 @@
     <title>Guess the Number Game</title>
     <style>
         body {
-            font-family: Arial;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            background-color: #f0f8ff;
+            background: linear-gradient(to right, #89f7fe, #66a6ff);
+            margin: 0;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #333;
+            text-shadow: 1px 1px 2px #fff;
         }
 
         input {
-            padding: 8px;
+            padding: 10px;
             font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
         }
 
         button {
-            padding: 8px 12px;
+            padding: 10px 15px;
             margin: 5px;
             font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
 
         #result {
             font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #attempts {
             margin-top: 10px;
+            color: #555;
         }
     </style>
 </head>
@@ -47,9 +72,11 @@
             tries++;
 
             if (userGuess == secret) {
-                document.getElementById("result").innerHTML = "🎉 You win!";
+                document.getElementById("result").innerHTML = "🎉 Correct! You guessed it!";
+            } else if (userGuess < secret) {
+                document.getElementById("result").innerHTML = "🔼 Too low! Try again.";
             } else {
-                document.getElementById("result").innerHTML = "❌ Wrong! Try again.";
+                document.getElementById("result").innerHTML = "🔽 Too high! Try again.";
             }
 
             document.getElementById("attempts").innerHTML = "Attempts: " + tries;
@@ -66,3 +93,4 @@
 
 </body>
 </html>
+
